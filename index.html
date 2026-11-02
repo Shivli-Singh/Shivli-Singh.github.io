@@ -1,25 +1,28 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Shivli Singh | Computer Science Student</title>
-<meta name="description" content="Shivli Singh's personal portfolio. Computer Science Engineering student exploring software development and AI.">
+<meta name="theme-color" content="#080817">
+<title>Shivli Singh | AI & Technology</title>
+<meta name="description" content="Shivli Singh — Computer Science Engineering student passionate about AI, technology and innovation.">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 
 <style>
 :root {
-  --bg: #090D18;
-  --surface: #111827;
-  --surface2: #172135;
-  --blue: #6485FF;
-  --purple: #A18AFF;
-  --cyan: #38D5D0;
-  --white: #F2F5FF;
-  --muted: #9BA7BD;
-  --border: #ffffff14;
+  --bg: #080817;
+  --surface: #11132b;
+  --surface2: #191d3c;
+  --blue: #5577ff;
+  --purple: #a66cff;
+  --pink: #e16bff;
+  --cyan: #39e6e0;
+  --white: #f5f5ff;
+  --muted: #a6abc8;
+  --border: #ffffff18;
 }
 
 * {
@@ -32,72 +35,174 @@
 body {
   background: var(--bg);
   color: var(--white);
-  font-family: 'Inter', sans-serif;
+  font-family: Inter, sans-serif;
   line-height: 1.7;
   overflow-x: hidden;
 }
 
 a {
-  text-decoration: none;
   color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font-family: inherit;
+}
+
+::selection {
+  background: var(--purple);
+  color: white;
+}
+
+/* ANIMATED BACKGROUND */
+
+.background {
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(100px);
+  opacity: .22;
+  animation: float 12s ease-in-out infinite alternate;
+}
+
+.blob.one {
+  background: #524cff;
+  width: 420px;
+  height: 420px;
+  top: 5%;
+  left: -180px;
+}
+
+.blob.two {
+  background: #c04cff;
+  width: 350px;
+  height: 350px;
+  top: 40%;
+  right: -150px;
+  animation-delay: -4s;
+}
+
+.blob.three {
+  background: #00d9d0;
+  width: 300px;
+  height: 300px;
+  bottom: 0;
+  left: 35%;
+  animation-delay: -7s;
+}
+
+@keyframes float {
+  from { transform: translate(0,0) scale(1); }
+  to { transform: translate(50px,-60px) scale(1.2); }
+}
+
+#particles {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
 }
 
 .container {
-  width: 84%;
-  max-width: 1150px;
+  width: 86%;
+  max-width: 1180px;
   margin: auto;
 }
 
+/* NAVIGATION */
+
 nav {
   position: fixed;
-  width: 100%;
   top: 0;
+  width: 100%;
   z-index: 100;
-  background: #090d18eF;
-  backdrop-filter: blur(15px);
+  background: #080817d9;
+  backdrop-filter: blur(20px);
   border-bottom: 1px solid var(--border);
 }
 
 .nav-inner {
+  height: 76px;
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  height: 75px;
+  justify-content: space-between;
 }
 
 .logo {
-  font-size: 21px;
-  font-weight: 800;
+  font-size: 23px;
+  font-weight: 900;
   letter-spacing: -1px;
 }
 
 .logo span {
   color: var(--cyan);
+  text-shadow: 0 0 20px var(--cyan);
 }
 
 .nav-links {
   display: flex;
-  align-items: center;
-  gap: 30px;
+  gap: 28px;
 }
 
 .nav-links a {
-  font-size: 13px;
   color: var(--muted);
+  font-size: 13px;
   transition: .3s;
 }
 
 .nav-links a:hover {
   color: var(--cyan);
+  text-shadow: 0 0 12px var(--cyan);
 }
 
 .menu-btn {
   display: none;
-  background: none;
-  border: none;
   color: white;
-  font-size: 25px;
+  background: none;
+  border: 0;
+  font-size: 27px;
+  cursor: pointer;
 }
+
+/* BUTTONS */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 13px 23px;
+  border-radius: 9px;
+  font-size: 13px;
+  font-weight: 700;
+  transition: .35s;
+  cursor: pointer;
+  border: 1px solid transparent;
+}
+
+.btn-primary {
+  background: linear-gradient(110deg,var(--blue),var(--purple),var(--pink));
+  color: white;
+  box-shadow: 0 8px 30px #7659ff40;
+}
+
+.btn-outline {
+  border-color: #a18aff70;
+  background: #ffffff08;
+}
+
+.btn:hover {
+  transform: translateY(-5px) scale(1.03);
+  box-shadow: 0 12px 35px #785fff55;
+}
+
+/* HERO */
 
 .hero {
   min-height: 780px;
@@ -108,132 +213,161 @@ nav {
 
 .hero-grid {
   display: grid;
-  grid-template-columns: 1.4fr .6fr;
-  gap: 50px;
+  grid-template-columns: 1.3fr .7fr;
+  gap: 55px;
   align-items: center;
 }
 
 .eyebrow {
   color: var(--cyan);
   font-size: 12px;
-  font-weight: 600;
-  letter-spacing: 2px;
+  letter-spacing: 3px;
+  font-weight: 700;
   text-transform: uppercase;
 }
 
 .hero h1 {
-  font-size: clamp(42px,6vw,69px);
-  line-height: 1.13;
-  letter-spacing: -3px;
-  margin: 22px 0;
+  font-size: clamp(45px,7vw,82px);
+  line-height: 1.1;
+  letter-spacing: -4px;
+  margin: 25px 0;
 }
 
 .gradient {
-  background: linear-gradient(90deg,var(--blue),var(--purple),var(--cyan));
-  -webkit-background-clip: text;
+  background: linear-gradient(100deg,#6e8cff,#bd80ff,#ff80dc,#41e8df);
+  background-size: 300%;
   background-clip: text;
+  -webkit-background-clip: text;
   color: transparent;
+  animation: gradientMove 7s ease infinite;
+}
+
+@keyframes gradientMove {
+  0%,100% { background-position: 0%; }
+  50% { background-position: 100%; }
 }
 
 .hero-desc {
   color: var(--muted);
-  max-width: 560px;
+  max-width: 580px;
   font-size: 15px;
 }
 
 .hero-buttons {
   display: flex;
-  gap: 14px;
   flex-wrap: wrap;
+  gap: 15px;
   margin-top: 32px;
 }
 
-.btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 12px 21px;
-  border-radius: 7px;
-  font-size: 13px;
-  font-weight: 600;
-  transition: .3s;
-  cursor: pointer;
-}
+/* 3D PROFILE */
 
-.btn-primary {
-  background: var(--blue);
-  color: white;
-}
-
-.btn-outline {
-  border: 1px solid #ffffff35;
-  color: var(--white);
-}
-
-.btn:hover {
-  transform: translateY(-3px);
-  filter: brightness(1.15);
+.scene {
+  perspective: 1000px;
 }
 
 .profile-card {
-  width: 100%;
-  max-width: 290px;
+  max-width: 330px;
   margin: auto;
-  padding: 35px 25px;
+  padding: 38px 25px;
   text-align: center;
-  background: linear-gradient(145deg,#182440,#101726);
-  border: 1px solid #647cff35;
-  border-radius: 18px;
-  box-shadow: 0 25px 70px #0005;
-  transition: .3s;
+  border: 1px solid #8b82ff65;
+  border-radius: 25px;
+  background: linear-gradient(145deg,#252852aa,#10172cdd);
+  backdrop-filter: blur(20px);
+  box-shadow:
+    0 30px 80px #0008,
+    inset 0 1px 1px #ffffff30,
+    0 0 45px #806aff20;
+  transform-style: preserve-3d;
+  transition: transform .15s ease;
 }
 
 .profile-card:hover {
-  transform: translateY(-8px);
-  border-color: var(--cyan);
+  box-shadow: 0 30px 80px #0009, 0 0 45px #a66cff55;
 }
 
 .avatar {
-  width: 110px;
-  height: 110px;
-  margin: auto auto 20px;
+  width: 125px;
+  height: 125px;
+  margin: auto auto 24px;
   border-radius: 50%;
   display: grid;
   place-items: center;
-  font-size: 38px;
-  font-weight: 800;
-  color: white;
-  background: linear-gradient(135deg,#6d68ff,#25c9d1);
-  box-shadow: 0 0 35px #627aff44;
+  font-size: 43px;
+  font-weight: 900;
+  background: linear-gradient(135deg,#527aff,#a34cff,#31ded7);
+  box-shadow: 0 0 45px #806aff80;
+  animation: avatarFloat 4s ease-in-out infinite;
+}
+
+@keyframes avatarFloat {
+  0%,100% { transform: translateY(0) rotateY(0); }
+  50% { transform: translateY(-12px) rotateY(10deg); }
 }
 
 .profile-card h3 {
-  font-size: 19px;
+  font-size: 22px;
 }
 
 .profile-card p {
-  font-size: 12px;
   color: var(--muted);
-  margin-top: 7px;
+  font-size: 12px;
+  margin-top: 8px;
 }
 
 .status {
   display: inline-block;
-  font-size: 11px;
-  color: var(--cyan);
+  padding: 8px 13px;
   margin-top: 20px;
-  padding: 6px 12px;
-  background: #35d5ce12;
-  border-radius: 20px;
+  font-size: 10px;
+  color: var(--cyan);
+  border-radius: 30px;
+  background: #38e5d012;
+  border: 1px solid #38e5d040;
 }
 
+/* FLOATING DECORATIONS */
+
+.orbit {
+  position: absolute;
+  width: 55px;
+  height: 55px;
+  display: grid;
+  place-items: center;
+  border-radius: 16px;
+  font-size: 25px;
+  background: #24294c;
+  border: 1px solid #ffffff30;
+  box-shadow: 0 15px 40px #0008;
+  animation: orbitFloat 5s ease-in-out infinite;
+}
+
+.orbit.one {
+  top: 5%;
+  left: -12%;
+}
+
+.orbit.two {
+  right: -10%;
+  bottom: 15%;
+  animation-delay: -2s;
+}
+
+@keyframes orbitFloat {
+  0%,100% { transform: translateY(0) rotate(-8deg); }
+  50% { transform: translateY(-20px) rotate(10deg); }
+}
+
+/* SECTIONS */
+
 section {
-  padding: 95px 0;
+  padding: 100px 0;
   border-top: 1px solid var(--border);
 }
 
 .section-title {
-  margin-bottom: 38px;
+  margin-bottom: 40px;
 }
 
 .section-title small {
@@ -244,9 +378,9 @@ section {
 }
 
 .section-title h2 {
-  font-size: 34px;
-  letter-spacing: -1px;
+  font-size: clamp(28px,4vw,40px);
   margin: 10px 0;
+  letter-spacing: -1.5px;
 }
 
 .section-title p {
@@ -256,45 +390,99 @@ section {
 
 .about-text {
   color: var(--muted);
-  max-width: 850px;
+  max-width: 880px;
   font-size: 15px;
+  line-height: 2;
 }
+
+/* CARDS */
 
 .grid {
   display: grid;
   grid-template-columns: repeat(3,1fr);
-  gap: 20px;
+  gap: 23px;
+  perspective: 1200px;
 }
 
 .card {
-  padding: 27px;
-  background: var(--surface);
+  position: relative;
+  overflow: hidden;
+  padding: 30px;
   border: 1px solid var(--border);
-  border-radius: 12px;
-  transition: .3s;
+  border-radius: 17px;
+  background: linear-gradient(145deg,#1b2040,#101426);
+  box-shadow: 0 15px 35px #0003;
+  transform-style: preserve-3d;
+  transition: transform .25s, border .3s, box-shadow .3s;
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -120%;
+  width: 80%;
+  height: 100%;
+  background: linear-gradient(100deg,transparent,#ffffff0c,transparent);
+  transform: skewX(-20deg);
+  transition: .7s;
+}
+
+.card:hover::before {
+  left: 140%;
 }
 
 .card:hover {
-  transform: translateY(-5px);
-  border-color: #6485ff80;
-  background: var(--surface2);
+  border-color: var(--purple);
+  box-shadow: 0 25px 50px #715bff25;
 }
 
 .card-icon {
-  font-size: 25px;
-  margin-bottom: 18px;
+  font-size: 32px;
+  margin-bottom: 17px;
 }
 
 .card h3 {
   font-size: 17px;
-  margin-bottom: 10px;
+  margin-bottom: 12px;
 }
 
 .card p {
-  color: var(--muted);
   font-size: 13px;
-  line-height: 1.8;
+  color: var(--muted);
+  line-height: 1.9;
 }
+
+.project-type {
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  color: var(--cyan);
+  margin-bottom: 15px;
+}
+
+.project-links {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+  margin-top: 22px;
+}
+
+.project-links button,
+.project-links a {
+  border: none;
+  background: none;
+  color: #bd9aff;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.project-links button:hover,
+.project-links a:hover {
+  color: var(--cyan);
+}
+
+/* SKILLS */
 
 .skills-group {
   margin-bottom: 35px;
@@ -307,56 +495,39 @@ section {
 
 .skills {
   display: flex;
-  gap: 11px;
   flex-wrap: wrap;
+  gap: 12px;
 }
 
 .skill {
-  border: 1px solid #7188ff40;
-  color: #c3ccff;
-  padding: 9px 15px;
-  border-radius: 7px;
+  padding: 10px 17px;
+  border: 1px solid #8c83ff55;
+  border-radius: 9px;
+  background: linear-gradient(120deg,#6e6aff15,#df6bff12);
+  color: #d2d3ff;
   font-size: 12px;
-  background: #647cff0d;
   transition: .3s;
 }
 
 .skill:hover {
+  transform: translateY(-5px);
+  background: #7d6cff30;
   border-color: var(--cyan);
   color: var(--cyan);
+  box-shadow: 0 8px 25px #7d6cff25;
 }
 
-.project-type {
-  color: var(--cyan);
-  font-size: 10px;
-  letter-spacing: 1.5px;
-  font-weight: 700;
-}
-
-.project-links {
-  display: flex;
-  gap: 17px;
-  margin-top: 22px;
-}
-
-.project-links a {
-  font-size: 12px;
-  color: var(--purple);
-}
-
-.project-links a:hover {
-  color: var(--cyan);
-}
+/* TIMELINE */
 
 .timeline {
-  border-left: 2px solid #667fff70;
+  border-left: 2px solid #8b75ff70;
   margin-left: 8px;
   padding-left: 30px;
 }
 
 .timeline-item {
   position: relative;
-  margin-bottom: 30px;
+  margin-bottom: 35px;
 }
 
 .timeline-item::before {
@@ -368,72 +539,84 @@ section {
   height: 12px;
   border-radius: 50%;
   background: var(--cyan);
-  box-shadow: 0 0 12px #38d5d0;
-}
-
-.timeline-item h3 {
-  font-size: 16px;
+  box-shadow: 0 0 18px var(--cyan);
 }
 
 .timeline-item small {
   color: var(--cyan);
-  font-size: 12px;
+  font-size: 11px;
+}
+
+.timeline-item h3 {
+  font-size: 16px;
+  margin-top: 5px;
 }
 
 .timeline-item p {
-  color: var(--muted);
   font-size: 13px;
-  margin-top: 6px;
+  color: var(--muted);
+  margin-top: 7px;
 }
 
+/* CONTACT */
+
 .contact {
-  background: linear-gradient(135deg,#151e38,#111b2b);
-  border: 1px solid #647cff40;
-  border-radius: 16px;
-  padding: 55px 25px;
+  padding: 65px 25px;
   text-align: center;
+  border: 1px solid #a184ff55;
+  border-radius: 25px;
+  background:
+    radial-gradient(ellipse at top left,#674dff25,transparent 50%),
+    radial-gradient(ellipse at bottom right,#00d9d025,transparent 50%),
+    #14172c;
+  box-shadow: 0 25px 70px #0005;
 }
 
 .contact h2 {
-  font-size: 32px;
+  font-size: clamp(27px,4vw,38px);
+  margin-top: 15px;
 }
 
 .contact p {
+  max-width: 530px;
+  margin: 15px auto 25px;
   color: var(--muted);
   font-size: 14px;
-  margin: 15px auto 25px;
-  max-width: 520px;
 }
 
 .socials {
   display: flex;
   justify-content: center;
-  gap: 20px;
   flex-wrap: wrap;
+  gap: 25px;
   margin-top: 30px;
 }
 
 .socials a {
-  color: #b8c4e0;
+  color: #c4c7e8;
   font-size: 13px;
+  transition: .3s;
 }
 
 .socials a:hover {
   color: var(--cyan);
+  transform: translateY(-3px);
 }
 
 footer {
-  border-top: 1px solid var(--border);
-  padding: 25px 0;
+  padding: 28px 0;
+  text-align: center;
   color: var(--muted);
   font-size: 12px;
-  text-align: center;
+  border-top: 1px solid var(--border);
 }
+
+/* REVEAL ANIMATION */
 
 .reveal {
   opacity: 0;
-  transform: translateY(18px);
-  transition: .7s;
+  transform: translateY(35px);
+  transition: .8s ease;
 }
 
 .reveal.visible {
@@ -441,13 +624,101 @@ footer {
   transform: translateY(0);
 }
 
+/* POPUP */
+
+.modal {
+  position: fixed;
+  inset: 0;
+  z-index: 500;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: #03030dd9;
+  backdrop-filter: blur(12px);
+}
+
+.modal.active {
+  display: flex;
+  animation: fadeIn .3s;
+}
+
+.modal-content {
+  width: 100%;
+  max-width: 480px;
+  position: relative;
+  padding: 35px;
+  border-radius: 22px;
+  border: 1px solid #9e85ff80;
+  background: linear-gradient(145deg,#25254c,#101629);
+  box-shadow: 0 30px 100px #000a,0 0 40px #8365ff30;
+  animation: popup .4s cubic-bezier(.2,.8,.2,1);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes popup {
+  from { transform: translateY(35px) scale(.9); opacity: 0; }
+  to { transform: translateY(0) scale(1); opacity: 1; }
+}
+
+.close {
+  position: absolute;
+  right: 18px;
+  top: 13px;
+  color: white;
+  font-size: 25px;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+.modal-content h2 {
+  font-size: 25px;
+  margin-bottom: 12px;
+}
+
+.modal-content p {
+  font-size: 13px;
+  color: var(--muted);
+  margin-bottom: 22px;
+}
+
+/* TOAST */
+
+.toast {
+  position: fixed;
+  bottom: 25px;
+  left: 50%;
+  transform: translate(-50%,100px);
+  background: #24294c;
+  border: 1px solid var(--cyan);
+  color: white;
+  border-radius: 12px;
+  padding: 13px 22px;
+  z-index: 600;
+  font-size: 13px;
+  transition: .4s;
+}
+
+.toast.show {
+  transform: translate(-50%,0);
+}
+
+/* RESPONSIVE */
+
 @media(max-width:850px) {
   .hero-grid {
     grid-template-columns: 1fr;
   }
+
   .profile-card {
-    margin: 15px 0 0;
+    margin-top: 20px;
   }
+
   .grid {
     grid-template-columns: repeat(2,1fr);
   }
@@ -455,39 +726,61 @@ footer {
 
 @media(max-width:650px) {
   .container {
-    width: 88%;
+    width: 89%;
   }
+
   .menu-btn {
     display: block;
   }
+
   .nav-links {
     display: none;
     position: absolute;
-    top: 75px;
+    top: 76px;
     left: 0;
     width: 100%;
     padding: 25px;
-    background: #111827;
+    background: #101329;
     flex-direction: column;
+    gap: 22px;
+    border-bottom: 1px solid var(--border);
   }
+
   .nav-links.active {
     display: flex;
   }
+
   .hero {
     min-height: auto;
-    padding: 145px 0 75px;
+    padding: 145px 0 85px;
   }
+
   .hero h1 {
     letter-spacing: -2px;
   }
+
   section {
     padding: 75px 0;
   }
+
   .grid {
     grid-template-columns: 1fr;
   }
-  .section-title h2 {
-    font-size: 28px;
+
+  .orbit {
+    display: none;
+  }
+
+  .contact {
+    padding: 45px 18px;
+  }
+}
+
+@media(prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    transition-duration: .01ms !important;
+    scroll-behavior: auto !important;
   }
 }
 </style>
@@ -495,26 +788,40 @@ footer {
 
 <body>
 
+<div class="background">
+  <div class="blob one"></div>
+  <div class="blob two"></div>
+  <div class="blob three"></div>
+</div>
+<canvas id="particles"></canvas>
+
+<!-- NAVIGATION -->
+
 <nav>
   <div class="container nav-inner">
     <a href="#home" class="logo">SHIVLI<span>.</span></a>
-    <button class="menu-btn" onclick="toggleMenu()">☰</button>
+
+    <button class="menu-btn" onclick="toggleMenu()" aria-label="Toggle navigation">☰</button>
+
     <div class="nav-links" id="navLinks">
       <a href="#home">Home</a>
       <a href="#about">About</a>
       <a href="#skills">Skills</a>
       <a href="#projects">Projects</a>
       <a href="#education">Education</a>
+      <a href="#certifications">Certifications</a>
       <a href="#contact">Contact</a>
     </div>
   </div>
 </nav>
 
 <!-- HOME -->
+
 <header class="hero container" id="home">
   <div class="hero-grid">
+
     <div>
-      <div class="eyebrow">Computer Science Engineering Student</div>
+      <div class="eyebrow">✦ Welcome to my digital space</div>
 
       <h1>
         Hello, I'm<br>
@@ -522,58 +829,90 @@ footer {
       </h1>
 
       <p class="hero-desc">
-        An aspiring software developer exploring the world of
-        computer science, programming and artificial intelligence.
-        I enjoy learning new technologies and turning ideas into
-        meaningful projects.
+        A Computer Science Engineering student passionate about
+        technology, artificial intelligence and innovation.
+        I love exploring new possibilities, developing creative
+        ideas and transforming concepts into meaningful digital
+        experiences. My journey is driven by curiosity,
+        continuous learning and the ambition to build technology
+        that makes a difference.
       </p>
 
       <div class="hero-buttons">
         <a href="#projects" class="btn btn-primary">Explore Projects ↗</a>
-        <a href="#contact" class="btn btn-outline">Get in Touch</a>
+        <a href="#contact" class="btn btn-outline">Let's Connect</a>
       </div>
     </div>
 
-    <div class="profile-card">
-      <div class="avatar">SS</div>
-      <h3>Shivli Singh</h3>
-      <p>Computer Science Engineering</p>
-      <p>Atria Institute of Technology</p>
-      <div class="status">● Open to learning & collaboration</div>
+    <div class="scene" id="scene">
+      <div class="profile-card" id="profileCard">
+        <div class="orbit one">✦</div>
+        <div class="orbit two">⌘</div>
+
+        <div class="avatar">SS</div>
+
+        <h3>Shivli Singh</h3>
+        <p>Computer Science Engineering</p>
+        <p>Atria Institute of Technology</p>
+
+        <div class="status">● Open to learning & collaboration</div>
+      </div>
     </div>
+
   </div>
 </header>
 
 <!-- ABOUT -->
+
 <section id="about">
   <div class="container reveal">
+
     <div class="section-title">
       <small>01 — About me</small>
-      <h2>Get to know <span class="gradient">me.</span></h2>
-      <p>A little introduction.</p>
+      <h2>Beyond code, driven by <span class="gradient">curiosity.</span></h2>
+      <p>My story, interests and ambitions.</p>
     </div>
 
     <p class="about-text">
       I am currently pursuing a Bachelor of Engineering in
-      Computer Science Engineering at Atria Institute of Technology,
-      Bengaluru. I am building my foundation in programming and
-      exploring the possibilities of modern technology.
+      Computer Science Engineering at Atria Institute of
+      Technology, Bengaluru.
+
       <br><br>
-      My interests include software development, artificial
-      intelligence, problem solving and creating digital solutions.
-      I believe in continuous learning and improving through
-      practical experience.
+
+      Technology has always fascinated me because of its ability
+      to transform ideas into real-world solutions. I am
+      particularly interested in artificial intelligence,
+      software development, emerging technologies and the
+      evolving relationship between humans and technology.
+
+      <br><br>
+
+      I believe that being a developer is not just about writing
+      code. It is about asking questions, thinking creatively,
+      solving problems and continuously challenging yourself
+      to learn something new.
+
+      <br><br>
+
+      My goal is to build a strong technical foundation,
+      participate in meaningful projects and grow into a
+      technology professional capable of creating impactful
+      innovations.
     </p>
+
   </div>
 </section>
 
 <!-- SKILLS -->
+
 <section id="skills">
   <div class="container reveal">
+
     <div class="section-title">
       <small>02 — Technical skills</small>
-      <h2>My technical <span class="gradient">toolkit.</span></h2>
-      <p>Technologies and concepts I am exploring.</p>
+      <h2>My technology <span class="gradient">universe.</span></h2>
+      <p>Skills and areas I am currently developing.</p>
     </div>
 
     <div class="skills-group">
@@ -581,8 +920,7 @@ footer {
       <div class="skills">
         <span class="skill">C Programming</span>
         <span class="skill">HTML</span>
-        <span class="skill">CSS</span>
-        <span class="skill">JavaScript</span>
+        <span class="skill">Web Development</span>
       </div>
     </div>
 
@@ -600,75 +938,93 @@ footer {
       <h3>Areas of Interest</h3>
       <div class="skills">
         <span class="skill">Artificial Intelligence</span>
-        <span class="skill">Web Development</span>
+        <span class="skill">Generative AI</span>
+        <span class="skill">Software Development</span>
         <span class="skill">Problem Solving</span>
+        <span class="skill">Innovation</span>
         <span class="skill">Emerging Technologies</span>
       </div>
     </div>
+
   </div>
 </section>
 
 <!-- PROJECTS -->
+
 <section id="projects">
   <div class="container reveal">
+
     <div class="section-title">
       <small>03 — Selected work</small>
-      <h2>Projects & <span class="gradient">experiments.</span></h2>
-      <p>Some of the things I have worked on.</p>
+      <h2>Ideas into <span class="gradient">reality.</span></h2>
+      <p>Projects, experiments and my development journey.</p>
     </div>
 
     <div class="grid">
-      <div class="card">
+
+      <div class="card tilt">
         <div class="project-type">WEB DEVELOPMENT · HACKATHON</div>
-        <div class="card-icon">💻</div>
+        <div class="card-icon">🚀</div>
         <h3>Placement Training LMS</h3>
         <p>
           A placement preparation learning management system
-          concept developed for Cypher 4.0 at Atria Institute
-          of Technology.
+          developed as a hackathon concept for Atria Cypher 4.0.
+          The project explores digital learning, placement
+          preparation and student development.
         </p>
         <div class="project-links">
           <a href="https://github.com/Shivli-Singh/placement-prep-path"
-          target="_blank">GitHub Repository ↗</a>
+             target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+          <button onclick="showProject('lms')">Explore Details ↗</button>
         </div>
       </div>
 
-      <div class="card">
+      <div class="card tilt">
         <div class="project-type">PERSONAL PROJECT</div>
-        <div class="card-icon">🌐</div>
+        <div class="card-icon">🌌</div>
         <h3>Personal Portfolio</h3>
         <p>
-          A responsive personal website designed to showcase
-          my skills, projects, education and development journey.
+          An interactive portfolio website showcasing my
+          education, technical interests, projects and journey
+          as a Computer Science Engineering student.
         </p>
         <div class="project-links">
           <a href="https://github.com/Shivli-Singh"
-          target="_blank">GitHub Profile ↗</a>
+             target="_blank" rel="noopener noreferrer">GitHub Profile ↗</a>
+          <button onclick="showProject('portfolio')">Explore Details ↗</button>
         </div>
       </div>
 
-      <div class="card">
+      <div class="card tilt">
         <div class="project-type">UPCOMING PROJECT</div>
-        <div class="card-icon">✦</div>
-        <h3>More Coming Soon</h3>
+        <div class="card-icon">✨</div>
+        <h3>What's Next?</h3>
         <p>
-          Currently exploring new ideas and developing
-          programming and software development skills.
+          Exploring new ideas in artificial intelligence,
+          software development and creative technology.
+          More projects are on the way.
         </p>
+        <div class="project-links">
+          <button onclick="showProject('upcoming')">Explore Details ↗</button>
+        </div>
       </div>
+
     </div>
   </div>
 </section>
 
 <!-- EDUCATION -->
+
 <section id="education">
   <div class="container reveal">
+
     <div class="section-title">
       <small>04 — Education & milestones</small>
       <h2>My learning <span class="gradient">journey.</span></h2>
     </div>
 
     <div class="timeline">
+
       <div class="timeline-item">
         <small>2026 — PRESENT</small>
         <h3>B.E. Computer Science Engineering</h3>
@@ -677,90 +1033,153 @@ footer {
 
       <div class="timeline-item">
         <small>2026</small>
-        <h3>Cypher 4.0 Hackathon</h3>
+        <h3>Atria Cypher 4.0 Hackathon</h3>
         <p>
-          Worked on a Placement Training LMS project
-          as part of a college hackathon.
+          Worked on a Placement Training LMS concept,
+          exploring product development and collaborative
+          problem-solving.
         </p>
       </div>
 
       <div class="timeline-item">
         <small>ONGOING</small>
-        <h3>Technical Learning</h3>
+        <h3>Technical Exploration</h3>
         <p>
-          Exploring programming, web development,
-          GitHub and artificial intelligence.
+          Learning programming, exploring AI and building
+          practical development skills.
         </p>
       </div>
+
     </div>
   </div>
 </section>
 
 <!-- CERTIFICATIONS -->
+
 <section id="certifications">
   <div class="container reveal">
+
     <div class="section-title">
       <small>05 — Certifications</small>
       <h2>Learning beyond <span class="gradient">classrooms.</span></h2>
-      <p>Add your verified certifications as you complete them.</p>
+      <p>Courses, certifications and knowledge milestones.</p>
     </div>
 
     <div class="grid">
-      <div class="card">
+
+      <div class="card tilt">
         <div class="card-icon">📜</div>
-        <h3>Certification collection</h3>
-        <p>Course certificates and professional learning milestones will be listed here.</p>
+        <h3>Professional Learning</h3>
+        <p>
+          Building knowledge through online courses,
+          technical programs and independent learning.
+        </p>
       </div>
 
-      <div class="card">
+      <div class="card tilt">
         <div class="card-icon">🤖</div>
         <h3>AI & Technology</h3>
-        <p>Exploring artificial intelligence and emerging technology courses.</p>
+        <p>
+          Exploring artificial intelligence, generative AI
+          and emerging technologies.
+        </p>
       </div>
 
-      <div class="card">
+      <div class="card tilt">
         <div class="card-icon">📚</div>
-        <h3>Continuous Learning</h3>
-        <p>Developing practical knowledge through projects and online learning.</p>
+        <h3>Continuous Growth</h3>
+        <p>
+          Developing practical knowledge through projects,
+          experimentation and technical exploration.
+        </p>
       </div>
+
     </div>
+
   </div>
 </section>
 
 <!-- CONTACT -->
+
 <section id="contact">
   <div class="container reveal">
+
     <div class="contact">
-      <div class="eyebrow">06 — Contact</div>
-      <h2>Let's connect & <span class="gradient">collaborate.</span></h2>
+
+      <div class="eyebrow">06 — Let's connect</div>
+
+      <h2>Have an idea? Let's make it <span class="gradient">happen.</span></h2>
+
       <p>
-        Interested in technology, creative ideas or collaboration?
-        Feel free to reach out.
+        I am always interested in exploring technology,
+        exchanging ideas and connecting with people who
+        enjoy innovation and creativity.
       </p>
 
-      <div class="hero-buttons" style="justify-content:center">
-        <a href="mailto:YOUR_EMAIL@gmail.com"
-        class="btn btn-primary">Email Me ↗</a>
-      </div>
+      <a href="mailto:shivlisingh112@gmail.com"
+         class="btn btn-primary">Send Me an Email ↗</a>
 
       <div class="socials">
-        <a href="https://github.com/Shivli-Singh"
-        target="_blank">GitHub ↗</a>
 
-        <a href="https://www.linkedin.com/"
-        target="_blank">LinkedIn ↗</a>
+        <a href="https://github.com/Shivli-Singh"
+           target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+
+        <a href="https://www.linkedin.com/in/shivli-singh-29483b429?trk=contact-info"
+           target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
+
+        <a href="mailto:shivlisingh112@gmail.com">Email ↗</a>
+
       </div>
+
     </div>
   </div>
 </section>
 
 <footer>
   <div class="container">
-    © 2026 Shivli Singh · Built with HTML, CSS & JavaScript
+    © 2026 Shivli Singh · Designed with curiosity and creativity.
+    <br>
+    <span style="color:#38e6e0">Building. Learning. Innovating.</span>
   </div>
 </footer>
 
+<!-- WELCOME POPUP -->
+
+<div class="modal" id="welcomeModal" role="dialog" aria-modal="true" aria-labelledby="welcomeTitle">
+  <div class="modal-content">
+    <button class="close" onclick="closeModal('welcomeModal')" aria-label="Close">×</button>
+    <div class="eyebrow">✦ Welcome to my portfolio</div>
+    <h2 id="welcomeTitle">Hello, I'm <span class="gradient">Shivli!</span></h2>
+    <p>
+      Welcome to my digital space. Explore my projects,
+      discover my interests and follow my journey through
+      the world of computer science and AI.
+    </p>
+    <button class="btn btn-primary" onclick="closeModal('welcomeModal')">
+      Explore Portfolio ↗
+    </button>
+  </div>
+</div>
+
+<!-- PROJECT POPUP -->
+
+<div class="modal" id="projectModal" role="dialog" aria-modal="true" aria-labelledby="projectTitle">
+  <div class="modal-content">
+    <button class="close" onclick="closeModal('projectModal')" aria-label="Close">×</button>
+    <div class="eyebrow">PROJECT DETAILS</div>
+    <h2 id="projectTitle">Project</h2>
+    <p id="projectDescription"></p>
+    <a id="projectLink" class="btn btn-primary" href="#" target="_blank" rel="noopener noreferrer">
+      View on GitHub ↗
+    </a>
+  </div>
+</div>
+
+<div class="toast" id="toast" role="status">Welcome to my portfolio!</div>
+
 <script>
+/* MOBILE MENU */
+
 function toggleMenu() {
   document.getElementById("navLinks").classList.toggle("active");
 }
@@ -771,17 +1190,170 @@ document.querySelectorAll("#navLinks a").forEach(link => {
   });
 });
 
+/* POPUPS */
+
+function closeModal(id) {
+  document.getElementById(id).classList.remove("active");
+}
+
+function showProject(type) {
+  const projects = {
+    lms: {
+      title: "Placement Training LMS",
+      description: "A hackathon project concept focused on placement preparation, digital learning and helping students develop career-ready skills. Built during Atria Cypher 4.0.",
+      link: "https://github.com/Shivli-Singh/placement-prep-path"
+    },
+    portfolio: {
+      title: "Personal Portfolio",
+      description: "A personal digital space showcasing my academic background, technical interests, projects and development journey.",
+      link: "https://github.com/Shivli-Singh"
+    },
+    upcoming: {
+      title: "More Projects Coming Soon",
+      description: "I am exploring new ideas in artificial intelligence, software development and emerging technology. This section will grow as I build new projects.",
+      link: "https://github.com/Shivli-Singh"
+    }
+  };
+
+  const project = projects[type];
+
+  document.getElementById("projectTitle").textContent = project.title;
+  document.getElementById("projectDescription").textContent = project.description;
+  document.getElementById("projectLink").href = project.link;
+
+  document.getElementById("projectModal").classList.add("active");
+}
+
+/* CLOSE POPUPS BY CLICKING OUTSIDE */
+
+document.querySelectorAll(".modal").forEach(modal => {
+  modal.addEventListener("click", event => {
+    if (event.target === modal) {
+      modal.classList.remove("active");
+    }
+  });
+});
+
+/* ESCAPE KEY */
+
+document.addEventListener("keydown", event => {
+  if (event.key === "Escape") {
+    document.querySelectorAll(".modal").forEach(modal => {
+      modal.classList.remove("active");
+    });
+  }
+});
+
+/* WELCOME POPUP */
+
+window.addEventListener("load", () => {
+  setTimeout(() => {
+    document.getElementById("welcomeModal").classList.add("active");
+  }, 1000);
+});
+
+/* SCROLL REVEAL */
+
 const observer = new IntersectionObserver(entries => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
       entry.target.classList.add("visible");
+      observer.unobserve(entry.target);
     }
   });
-}, { threshold: 0.1 });
+}, { threshold: 0.12 });
 
 document.querySelectorAll(".reveal").forEach(element => {
   observer.observe(element);
 });
+
+/* 3D PROFILE TILT */
+
+const profile = document.getElementById("profileCard");
+
+if (window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
+  profile.addEventListener("mousemove", event => {
+    const rect = profile.getBoundingClientRect();
+    const x = (event.clientX - rect.left) / rect.width - .5;
+    const y = (event.clientY - rect.top) / rect.height - .5;
+
+    profile.style.transform =
+      `rotateY(${x * 16}deg) rotateX(${-y * 16}deg)`;
+  });
+
+  profile.addEventListener("mouseleave", () => {
+    profile.style.transform = "rotateY(0) rotateX(0)";
+  });
+}
+
+/* 3D PROJECT CARD TILT */
+
+if (window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
+  document.querySelectorAll(".tilt").forEach(card => {
+    card.addEventListener("mousemove", event => {
+      const rect = card.getBoundingClientRect();
+      const x = (event.clientX - rect.left) / rect.width - .5;
+      const y = (event.clientY - rect.top) / rect.height - .5;
+
+      card.style.transform =
+        `perspective(900px) rotateY(${x * 8}deg) rotateX(${-y * 8}deg) translateY(-5px)`;
+    });
+
+    card.addEventListener("mouseleave", () => {
+      card.style.transform = "";
+    });
+  });
+}
+
+/* BACKGROUND PARTICLES */
+
+const canvas = document.getElementById("particles");
+const ctx = canvas.getContext("2d");
+
+let particles = [];
+
+function resizeCanvas() {
+  const dpr = Math.min(window.devicePixelRatio || 1, 2);
+
+  canvas.width = window.innerWidth * dpr;
+  canvas.height = window.innerHeight * dpr;
+  canvas.style.width = window.innerWidth + "px";
+  canvas.style.height = window.innerHeight + "px";
+
+  ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+
+  particles = Array.from({length: 45}, () => ({
+    x: Math.random() * window.innerWidth,
+    y: Math.random() * window.innerHeight,
+    size: Math.random() * 2 + .5,
+    speed: Math.random() * .4 + .1
+  }));
+}
+
+function animateParticles() {
+  ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
+
+  particles.forEach(p => {
+    p.y -= p.speed;
+
+    if (p.y < 0) {
+      p.y = window.innerHeight;
+      p.x = Math.random() * window.innerWidth;
+    }
+
+    ctx.beginPath();
+    ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+    ctx.fillStyle = "rgba(135,145,255,.55)";
+    ctx.fill();
+  });
+
+  requestAnimationFrame(animateParticles);
+}
+
+resizeCanvas();
+animateParticles();
+
+window.addEventListener("resize", resizeCanvas);
 </script>
 
 </body>
